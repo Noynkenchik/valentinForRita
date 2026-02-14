@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Валентинка для Ритульки ❤️</title>
+  <title>Валентинка для Ритульки</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body { font-family: 'Nunito', sans-serif; overflow-x: hidden; background: #ffe6f0; }
+    body { font-family: 'Nunito', sans-serif; overflow-x: hidden; }
 
     /* ========== СТРАНИЦА ВАЛЕНТИНКИ ========== */
     #valentine-page {
@@ -24,8 +24,7 @@
       background-size: 200% 200%;
       animation: bg-glow-move 10s ease-in-out infinite;
       padding: 20px;
-      z-index: 10;
-      transition: opacity 0.5s ease;
+      z-index: 1;
     }
 
     #valentine-page::before {
@@ -96,7 +95,7 @@
       text-align: center;
       position: relative;
       overflow: hidden;
-      z-index: 2;
+      z-index: 1;
     }
     .card::before {
       content: '♥';
@@ -178,7 +177,7 @@
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    /* ========== СТРАНИЦА ПРАЗДНИКА (в том же документе) ========== */
+    /* ========== СТРАНИЦА ПРАЗДНИКА (в том же файле) ========== */
     #celebration-page {
       position: fixed;
       inset: 0;
@@ -190,7 +189,7 @@
       background-size: 400% 400%;
       animation: bg-shift 8s ease-in-out infinite;
       padding: 20px;
-      z-index: 20;
+      z-index: 2;
     }
 
     #celebration-page::before {
@@ -424,7 +423,6 @@
   </style>
 </head>
 <body>
-  <!-- СТРАНИЦА С ВОПРОСОМ -->
   <div id="valentine-page">
     <div class="hearts-bg">
       <div class="heart"></div>
@@ -451,25 +449,53 @@
     </div>
   </div>
 
-  <!-- СТРАНИЦА ПРАЗДНИКА (та же, без ссылок наружу) -->
   <div id="celebration-page">
     <div class="fireworks" id="fireworks"></div>
-    <!-- отдельные sparkle уже есть в разметке, добавим еще пару для красоты -->
-    <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
-    <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
     <div class="stars-wrap">
-      <div class="star"></div><div class="star star-pink"></div><div class="star"></div><div class="star star-white"></div>
-      <div class="star star-pink"></div><div class="star"></div><div class="star star-white"></div><div class="star star-pink"></div>
-      <div class="star"></div><div class="star"></div><div class="star star-white"></div><div class="star star-pink"></div>
+      <div class="star"></div>
+      <div class="star star-pink"></div>
+      <div class="star"></div>
+      <div class="star star-white"></div>
+      <div class="star star-pink"></div>
+      <div class="star"></div>
+      <div class="star star-white"></div>
+      <div class="star star-pink"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star star-white"></div>
+      <div class="star star-pink"></div>
     </div>
     <div class="salute">
-      <div class="salute-ray" style="--r: 0deg"></div><div class="salute-ray" style="--r: 36deg"></div><div class="salute-ray" style="--r: 72deg"></div>
-      <div class="salute-ray salute-pink" style="--r: 108deg"></div><div class="salute-ray" style="--r: 144deg"></div><div class="salute-ray" style="--r: 180deg"></div>
-      <div class="salute-ray salute-pink" style="--r: 216deg"></div><div class="salute-ray" style="--r: 252deg"></div><div class="salute-ray salute-green" style="--r: 288deg"></div>
-      <div class="salute-ray" style="--r: 324deg"></div><div class="salute-ray salute-pink" style="--r: 18deg"></div><div class="salute-ray" style="--r: 54deg"></div>
-      <div class="salute-ray salute-green" style="--r: 90deg"></div><div class="salute-ray" style="--r: 126deg"></div><div class="salute-ray" style="--r: 162deg"></div>
-      <div class="salute-ray salute-pink" style="--r: 198deg"></div><div class="salute-ray" style="--r: 234deg"></div><div class="salute-ray salute-green" style="--r: 270deg"></div>
-      <div class="salute-ray" style="--r: 306deg"></div><div class="salute-ray" style="--r: 342deg"></div>
+      <div class="salute-ray" style="--r: 0deg"></div>
+      <div class="salute-ray" style="--r: 36deg"></div>
+      <div class="salute-ray" style="--r: 72deg"></div>
+      <div class="salute-ray salute-pink" style="--r: 108deg"></div>
+      <div class="salute-ray" style="--r: 144deg"></div>
+      <div class="salute-ray" style="--r: 180deg"></div>
+      <div class="salute-ray salute-pink" style="--r: 216deg"></div>
+      <div class="salute-ray" style="--r: 252deg"></div>
+      <div class="salute-ray salute-green" style="--r: 288deg"></div>
+      <div class="salute-ray" style="--r: 324deg"></div>
+      <div class="salute-ray salute-pink" style="--r: 18deg"></div>
+      <div class="salute-ray" style="--r: 54deg"></div>
+      <div class="salute-ray salute-green" style="--r: 90deg"></div>
+      <div class="salute-ray" style="--r: 126deg"></div>
+      <div class="salute-ray" style="--r: 162deg"></div>
+      <div class="salute-ray salute-pink" style="--r: 198deg"></div>
+      <div class="salute-ray" style="--r: 234deg"></div>
+      <div class="salute-ray salute-green" style="--r: 270deg"></div>
+      <div class="salute-ray" style="--r: 306deg"></div>
+      <div class="salute-ray" style="--r: 342deg"></div>
     </div>
     <div class="celebration-content">
       <h1 class="celebration-title">
@@ -484,121 +510,117 @@
   </div>
 
   <script>
-    (function() {
-      const btnYes = document.getElementById('btnYes');
-      const btnNo = document.getElementById('btnNo');
-      const questionEl = document.getElementById('question');
-      const valentinePage = document.getElementById('valentine-page');
-      const celebrationPage = document.getElementById('celebration-page');
-      const cardImageContainer = document.querySelector('.card-image');
+    document.addEventListener('DOMContentLoaded', function() {
+    const btnYes = document.getElementById('btnYes');
+    const btnNo = document.getElementById('btnNo');
+    const questionEl = document.getElementById('question');
 
-      const phrases = [
-        'Ритуля, будешь моей валентинкой?',
-        'Пока надоел..будешь?',
-        'Ну пожалуйста, чимбербон( 💕',
-        'Я пишев плакать...если нет',
-        'Совсем не любишь Кольку да, скажи да?',
-        'У тебя нет выбора, я Декста Мога ♥',
-        'Один шансик ещё?',
-        'Ну хоть капельку подумай!',
-        'Я буду спрашивать снова и снова!',
-        'Ладно, последний раз — будешь моей валентинкой?'
-      ];
+    const phrases = [
+      'Ритуля, будешь моей валентинкой?',
+      'Пока надоел..будешь?',
+      'Ну пожалуйста, чимбербон( 💕',
+      'Я пишев плакать...если нет',
+      'Совсем не любишь Кольку да, скажи да?',
+      'У тебя нет выбора, я Декста Мога ♥',
+      'Один шансик ещё?',
+      'Ну хоть капельку подумай!',
+      'Я буду спрашивать снова и снова!',
+      'Ладно, последний раз — будешь моей валентинкой?'
+    ];
 
-      const gifUrls = [
-        'https://media1.tenor.com/m/y6LthaDam3gAAAAd/sped-up-kiss-cute-cat-kitten-gif-6454201794369349769-cat.gif',
-        'https://media1.tenor.com/m/rl_da90w6a0AAAAC/的9.gif',
-        'https://media1.tenor.com/m/esprFaACWL8AAAAC/jerry-beg.gif',
-        'https://media1.tenor.com/m/8DB9gYKzozUAAAAC/rain-raining.gif',
-        'https://media1.tenor.com/m/6IJb6BzvI0YAAAAd/cat-kitty.gif',
-        'https://media1.tenor.com/m/NbqmyQngYdkAAAAC/bruhlmaojk-dexter-morgan.gif'
-      ];
+    const gifUrls = [
+      'https://media1.tenor.com/m/y6LthaDam3gAAAAd/sped-up-kiss-cute-cat-kitten-gif-6454201794369349769-cat.gif',
+      'https://media1.tenor.com/m/rl_da90w6a0AAAAC/的9.gif',
+      'https://media1.tenor.com/m/esprFaACWL8AAAAC/jerry-beg.gif',
+      'https://media1.tenor.com/m/8DB9gYKzozUAAAAC/rain-raining.gif',
+      'https://media1.tenor.com/m/6IJb6BzvI0YAAAAd/cat-kitty.gif',
+      'https://media1.tenor.com/m/NbqmyQngYdkAAAAC/bruhlmaojk-dexter-morgan.gif'
+    ];
 
-      let phraseIndex = 0;
-      let gifIndex = 0;
-      let scaleYes = 1;
-      let scaleNo = 1;
-      const minScaleNo = 0.01;
+    const cardImageContainer = document.querySelector('.card-image');
+    let phraseIndex = 0;
+    let gifIndex = 0;
+    let scaleYes = 1;
+    let scaleNo = 1;
+    const minScaleNo = 0.01;
 
-      function setGif(index) {
-        const url = gifUrls[index % gifUrls.length];
-        const oldImg = cardImageContainer.querySelector('img');
-        const newImg = document.createElement('img');
-        newImg.id = 'cardGif';
-        newImg.alt = 'Валентинка';
-        newImg.src = url;
-        oldImg.replaceWith(newImg);
+    function setGif(index) {
+      var url = gifUrls[index];
+      var oldImg = cardImageContainer.querySelector('img');
+      var newImg = document.createElement('img');
+      newImg.id = 'cardGif';
+      newImg.alt = 'Валентинка';
+      newImg.src = url;
+      oldImg.replaceWith(newImg);
+    }
+
+    function applyScales() {
+      btnYes.style.transform = 'scale(' + scaleYes + ')';
+      if (scaleNo <= minScaleNo) {
+        btnNo.classList.add('hidden');
+        btnNo.style.transform = 'scale(0)';
+      } else {
+        btnNo.style.transform = 'scale(' + scaleNo + ')';
       }
+    }
 
-      function applyScales() {
-        btnYes.style.transform = `scale(${scaleYes})`;
-        if (scaleNo <= minScaleNo) {
-          btnNo.classList.add('hidden');
-          btnNo.style.transform = 'scale(0)';
-        } else {
-          btnNo.classList.remove('hidden');
-          btnNo.style.transform = `scale(${scaleNo})`;
-        }
-      }
+    questionEl.textContent = phrases[0];
+    setGif(0);
 
-      // Инициализация
+    btnNo.addEventListener('click', function() {
+      if (btnNo.classList.contains('hidden')) return;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      questionEl.textContent = phrases[phraseIndex];
+      gifIndex = (gifIndex + 1) % gifUrls.length;
+      setGif(gifIndex);
+      scaleYes += 0.3;
+      scaleNo -= 0.2;
+      if (scaleNo < minScaleNo) scaleNo = minScaleNo;
+      applyScales();
+    });
+
+    btnYes.addEventListener('click', function(e) {
+      e.preventDefault();
+      phraseIndex = 0;
+      gifIndex = 0;
       questionEl.textContent = phrases[0];
       setGif(0);
-
-      // Кнопка "Нет"
-      btnNo.addEventListener('click', function() {
-        if (btnNo.classList.contains('hidden')) return;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        questionEl.textContent = phrases[phraseIndex];
-        gifIndex = (gifIndex + 1) % gifUrls.length;
-        setGif(gifIndex);
-        scaleYes += 0.3;
-        scaleNo = Math.max(minScaleNo, scaleNo - 0.2);
-        applyScales();
-      });
-
-      // Кнопка "Да" — переключение на страницу праздника
-      btnYes.addEventListener('click', function(e) {
-        e.preventDefault();
-        // Сброс состояний для возврата (если потребуется, но сейчас просто скрываем)
-        valentinePage.style.display = 'none';
-        celebrationPage.style.display = 'flex';
-
-        // Создаём частицы фейерверка, если ещё не созданы
-        if (!window._celebrationParticlesDone) {
-          createParticles();
-          window._celebrationParticlesDone = true;
-        }
-      });
-
-      function createParticles() {
-        const colors = ['#ff6b9d', '#ffd93d', '#6bcb77', '#4d96ff', '#ff9a9e', '#c71585', '#ffecd2'];
-        const container = document.getElementById('fireworks');
-        if (!container) return;
-        const count = 100;
-        for (let i = 0; i < count; i++) {
-          const x = Math.random() * 100;
-          const y = Math.random() * 100;
-          const angle = (Math.PI * 2 * i) / count + Math.random() * 0.5;
-          const dist = 80 + Math.random() * 60;
-          const dx = Math.cos(angle) * dist;
-          const dy = Math.sin(angle) * dist;
-          const el = document.createElement('div');
-          el.className = 'particle';
-          el.style.left = x + '%';
-          el.style.top = y + '%';
-          el.style.background = colors[Math.floor(Math.random() * colors.length)];
-          el.style.animationDelay = (i * 0.03) + 's';
-          el.style.setProperty('--dx', dx);
-          el.style.setProperty('--dy', dy);
-          container.appendChild(el);
-        }
+      scaleYes = 1;
+      scaleNo = 1;
+      btnNo.classList.remove('hidden');
+      applyScales();
+      document.getElementById('valentine-page').style.display = 'none';
+      document.getElementById('celebration-page').style.display = 'flex';
+      if (!window._celebrationParticlesDone) {
+        createParticles();
+        window._celebrationParticlesDone = true;
       }
+    });
 
-      // Если пользователь захочет вернуться — добавим скрытую функцию? 
-      // Но по дизайну возврат не предусмотрен. Можно скрыть праздник и показать валентинку через двойной клик (для теста)
-      // Для простоты оставляем как есть — это единый документ, переход без перезагрузки.
-    })();
+    function createParticles() {
+      const colors = ['#ff6b9d', '#ffd93d', '#6bcb77', '#4d96ff', '#ff9a9e', '#c71585', '#ffecd2'];
+      const container = document.getElementById('fireworks');
+      if (!container) return;
+      const count = 100;
+      for (let i = 0; i < count; i++) {
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const angle = (Math.PI * 2 * i) / count + Math.random();
+        const dist = 80 + Math.random() * 60;
+        const dx = Math.cos(angle) * dist;
+        const dy = Math.sin(angle) * dist;
+        const el = document.createElement('div');
+        el.className = 'particle';
+        el.style.left = x + '%';
+        el.style.top = y + '%';
+        el.style.background = colors[Math.floor(Math.random() * colors.length)];
+        el.style.animationDelay = (i * 0.05) + 's';
+        el.style.setProperty('--dx', dx);
+        el.style.setProperty('--dy', dy);
+        container.appendChild(el);
+      }
+    }
+    });
   </script>
 </body>
 </html>
