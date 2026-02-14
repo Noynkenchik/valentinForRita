@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Валентинка для Ритульки</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body { font-family: 'Nunito', sans-serif; overflow-x: hidden; }
+
+    /* ========== СТРАНИЦА ВАЛЕНТИНКИ ========== */
+    #valentine-page {
+      position: fixed;
+      inset: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 40%, #ffecd2 70%, #ffb6c1 100%);
+      background-size: 200% 200%;
+      animation: bg-glow-move 10s ease-in-out infinite;
+      padding: 20px;
+      z-index: 1;
+    }
+
+    #valentine-page::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 20% 30%, rgba(255, 182, 193, 0.5) 0%, transparent 50%),
+                  radial-gradient(ellipse 70% 50% at 80% 70%, rgba(255, 105, 135, 0.35) 0%, transparent 50%),
+                  radial-gradient(ellipse 60% 80% at 50% 50%, rgba(255, 192, 203, 0.4) 0%, transparent 55%);
+      animation: bg-glow-pulse 4s ease-in-out infinite alternate;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    #valentine-page::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+      animation: bg-glow-soft 3s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes bg-glow-move {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    @keyframes bg-glow-pulse { 0% { opacity: 0.6; } 100% { opacity: 1; } }
+    @keyframes bg-glow-soft { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+
+    .hearts-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hearts-bg .heart {
+      position: absolute;
+      font-size: 80px;
+      color: rgba(255, 105, 135, 0.25);
+      text-shadow: 0 0 30px rgba(255, 105, 135, 0.3);
+      animation: heart-spin 8s linear infinite;
+      transform-origin: center center;
+    }
+    .hearts-bg .heart::before { content: '♥'; font-family: serif; }
+    .hearts-bg .heart.heart-dark { color: rgba(199, 21, 133, 0.2); text-shadow: 0 0 25px rgba(199, 21, 133, 0.25); }
+    .hearts-bg .heart.heart-light { color: rgba(255, 182, 193, 0.35); text-shadow: 0 0 20px rgba(255, 182, 193, 0.3); }
+    .hearts-bg .heart:nth-child(1) { top: 5%; left: 5%; font-size: 70px; animation-duration: 12s; animation-delay: 0s; }
+    .hearts-bg .heart:nth-child(2) { top: 10%; right: 8%; font-size: 100px; animation-duration: 10s; animation-delay: 1s; }
+    .hearts-bg .heart:nth-child(3) { top: 40%; left: 2%; font-size: 60px; animation-duration: 14s; animation-delay: 2s; }
+    .hearts-bg .heart:nth-child(4) { top: 25%; right: 3%; font-size: 85px; animation-duration: 9s; animation-delay: 0.5s; }
+    .hearts-bg .heart:nth-child(5) { bottom: 30%; left: 8%; font-size: 75px; animation-duration: 11s; animation-delay: 1.5s; }
+    .hearts-bg .heart:nth-child(6) { bottom: 10%; right: 10%; font-size: 95px; animation-duration: 7s; animation-delay: 0.3s; }
+    .hearts-bg .heart:nth-child(7) { bottom: 25%; right: 5%; font-size: 65px; animation-duration: 13s; animation-delay: 2.5s; }
+    .hearts-bg .heart:nth-child(8) { top: 55%; right: 6%; font-size: 55px; animation-duration: 15s; animation-delay: 1s; }
+    .hearts-bg .heart:nth-child(9) { top: 70%; left: 5%; font-size: 90px; animation-duration: 8s; animation-delay: 0.8s; }
+    .hearts-bg .heart:nth-child(10) { bottom: 5%; left: 15%; font-size: 70px; animation-duration: 10s; animation-delay: 2s; }
+    @keyframes heart-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    .card {
+      background: linear-gradient(145deg, #fff5f8 0%, #ffe8f0 100%);
+      border-radius: 24px;
+      padding: 40px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(255, 105, 135, 0.25), 0 0 0 1px rgba(255, 182, 193, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .card::before {
+      content: '♥';
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      font-size: 120px;
+      color: rgba(255, 105, 135, 0.08);
+      font-family: serif;
+    }
+    .card-image {
+      width: 100%;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, #ffe4ec 0%, #ffc0cb 100%);
+      border-radius: 16px;
+      margin-bottom: 24px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid rgba(255, 105, 135, 0.3);
+      position: relative;
+    }
+    .card-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .card-image img[src=""] { opacity: 0; }
+    .card-image .placeholder { color: #e75480; font-size: 48px; opacity: 0.5; }
+    .question {
+      font-family: 'Caveat', cursive;
+      font-size: 28px;
+      font-weight: 700;
+      color: #c71585;
+      margin-bottom: 28px;
+      line-height: 1.4;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    }
+    .buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 14px 32px;
+      border: none;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      flex-shrink: 0;
+    }
+    .btn-yes {
+      background: linear-gradient(135deg, #ff6b9d 0%, #c71585 100%);
+      color: white;
+      box-shadow: 0 6px 20px rgba(199, 21, 133, 0.4);
+    }
+    .btn-yes:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(199, 21, 133, 0.5); }
+    .btn-no {
+      background: linear-gradient(135deg, #ffb6c1 0%, #ff69b4 100%);
+      color: #8b0045;
+      box-shadow: 0 4px 15px rgba(255, 105, 180, 0.35);
+    }
+    .btn-no:hover { transform: scale(1.03); }
+    .btn-no.hidden {
+      pointer-events: none;
+      opacity: 0;
+      transform: scale(0);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* ========== СТРАНИЦА ПРАЗДНИКА (в том же файле) ========== */
+    #celebration-page {
+      position: fixed;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 30%, #1a0a2e 50%, #3d2863 70%, #1a0a2e 100%);
+      background-size: 400% 400%;
+      animation: bg-shift 8s ease-in-out infinite;
+      padding: 20px;
+      z-index: 2;
+    }
+
+    #celebration-page::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255, 107, 157, 0.25) 0%, transparent 50%),
+                  radial-gradient(ellipse 60% 40% at 20% 80%, rgba(255, 215, 0, 0.2) 0%, transparent 45%),
+                  radial-gradient(ellipse 50% 50% at 80% 20%, rgba(107, 203, 119, 0.15) 0%, transparent 45%),
+                  radial-gradient(ellipse 70% 60% at 0% 50%, rgba(77, 150, 255, 0.18) 0%, transparent 50%);
+      animation: celeb-glow 6s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+    #celebration-page::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(199, 21, 133, 0.12) 0%, transparent 40%);
+      animation: celeb-glow-2 4s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes bg-shift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+    @keyframes celeb-glow { 0% { opacity: 0.7; } 100% { opacity: 1; } }
+    @keyframes celeb-glow-2 { 0%, 100% { opacity: 0.5; transform: scale(1); } 50% { opacity: 1; transform: scale(1.05); } }
+
+    .fireworks { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; }
+    .particle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      animation: particle-burst 1.2s ease-out forwards;
+      opacity: 0;
+    }
+    .particle::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: inherit;
+      box-shadow: 0 0 10px currentColor;
+    }
+    @keyframes particle-burst {
+      0% { transform: translate(0, 0) scale(1); opacity: 1; }
+      100% { transform: translate(calc(var(--dx) * 1px), calc(var(--dy) * 1px)) scale(0); opacity: 0; }
+    }
+
+    .salute {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 200vmax;
+      height: 200vmax;
+      margin-left: -100vmax;
+      margin-top: -100vmax;
+      pointer-events: none;
+    }
+    .salute-ray {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 80px;
+      height: 4px;
+      margin-left: -40px;
+      margin-top: -2px;
+      background: linear-gradient(to right, rgba(255, 215, 0, 0.95), transparent);
+      border-radius: 2px;
+      transform-origin: center center;
+      animation: salute-ray 1.5s ease-out infinite;
+      box-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+    }
+    .salute-ray.salute-pink { background: linear-gradient(to right, rgba(255, 107, 157, 0.95), transparent); box-shadow: 0 0 10px rgba(255, 107, 157, 0.8); }
+    .salute-ray.salute-green { background: linear-gradient(to right, rgba(107, 203, 119, 0.9), transparent); box-shadow: 0 0 8px rgba(107, 203, 119, 0.7); }
+    .salute-ray:nth-child(1) { animation-delay: 0s; }
+    .salute-ray:nth-child(2) { animation-delay: 0.15s; }
+    .salute-ray:nth-child(3) { animation-delay: 0.3s; }
+    .salute-ray:nth-child(4) { animation-delay: 0.45s; }
+    .salute-ray:nth-child(5) { animation-delay: 0.6s; }
+    .salute-ray:nth-child(6) { animation-delay: 0.75s; }
+    .salute-ray:nth-child(7) { animation-delay: 0.9s; }
+    .salute-ray:nth-child(8) { animation-delay: 1.05s; }
+    .salute-ray:nth-child(9) { animation-delay: 1.2s; }
+    .salute-ray:nth-child(10) { animation-delay: 1.35s; }
+    .salute-ray:nth-child(11) { animation-delay: 1.5s; }
+    .salute-ray:nth-child(12) { animation-delay: 1.65s; }
+    .salute-ray:nth-child(13) { animation-delay: 1.8s; }
+    .salute-ray:nth-child(14) { animation-delay: 1.95s; }
+    .salute-ray:nth-child(15) { animation-delay: 2.1s; }
+    .salute-ray:nth-child(16) { animation-delay: 2.25s; }
+    .salute-ray:nth-child(17) { animation-delay: 2.4s; }
+    .salute-ray:nth-child(18) { animation-delay: 2.55s; }
+    .salute-ray:nth-child(19) { animation-delay: 2.7s; }
+    .salute-ray:nth-child(20) { animation-delay: 2.85s; }
+    @keyframes salute-ray {
+      0% { transform: rotate(var(--r)) scaleX(0); opacity: 1; }
+      40% { opacity: 1; }
+      100% { transform: rotate(var(--r)) scaleX(1); opacity: 0; }
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #ffd93d;
+      box-shadow: 0 0 12px #ffd93d, 0 0 24px rgba(255, 217, 61, 0.6);
+      animation: sparkle-twinkle 2s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .sparkle:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+    .sparkle:nth-child(2) { top: 15%; right: 8%; animation-delay: 0.3s; background: #ff6b9d; box-shadow: 0 0 12px #ff6b9d; }
+    .sparkle:nth-child(3) { top: 25%; left: 12%; animation-delay: 0.6s; }
+    .sparkle:nth-child(4) { bottom: 20%; right: 10%; animation-delay: 0.9s; background: #6bcb77; box-shadow: 0 0 12px #6bcb77; }
+    .sparkle:nth-child(5) { bottom: 15%; left: 7%; animation-delay: 1.2s; }
+    .sparkle:nth-child(6) { top: 8%; left: 50%; animation-delay: 0.2s; background: #4d96ff; box-shadow: 0 0 12px #4d96ff; }
+    .sparkle:nth-child(7) { bottom: 25%; left: 25%; animation-delay: 1.5s; }
+    .sparkle:nth-child(8) { bottom: 10%; right: 20%; animation-delay: 0.5s; }
+    .sparkle:nth-child(9) { top: 40%; right: 5%; animation-delay: 1s; background: #ff9a9e; box-shadow: 0 0 12px #ff9a9e; }
+    .sparkle:nth-child(10) { top: 60%; left: 8%; animation-delay: 1.8s; }
+    @keyframes sparkle-twinkle {
+      0%, 100% { opacity: 0.4; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    .stars-wrap { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+    .stars-wrap .star {
+      position: absolute;
+      font-size: 28px;
+      color: rgba(255, 215, 0, 0.9);
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+      animation: star-spin 4s linear infinite;
+      transform-origin: center center;
+    }
+    .stars-wrap .star::before { content: '★'; }
+    .stars-wrap .star.star-pink { color: rgba(255, 107, 157, 0.9); text-shadow: 0 0 10px rgba(255, 107, 157, 0.8); }
+    .stars-wrap .star.star-white { color: rgba(255, 255, 255, 0.85); text-shadow: 0 0 8px rgba(255, 255, 255, 0.7); }
+    .stars-wrap .star:nth-child(1) { top: 12%; left: 8%; font-size: 22px; animation-duration: 5s; animation-delay: 0s; }
+    .stars-wrap .star:nth-child(2) { top: 8%; right: 15%; font-size: 32px; animation-duration: 3.5s; animation-delay: 0.5s; }
+    .stars-wrap .star:nth-child(3) { top: 35%; left: 3%; font-size: 20px; animation-duration: 6s; animation-delay: 1s; }
+    .stars-wrap .star:nth-child(4) { top: 20%; right: 5%; font-size: 26px; animation-duration: 4s; animation-delay: 0.2s; }
+    .stars-wrap .star:nth-child(5) { bottom: 30%; left: 10%; font-size: 24px; animation-duration: 4.5s; animation-delay: 1.2s; }
+    .stars-wrap .star:nth-child(6) { bottom: 15%; right: 12%; font-size: 30px; animation-duration: 3s; animation-delay: 0.8s; }
+    .stars-wrap .star:nth-child(7) { bottom: 25%; right: 8%; font-size: 18px; animation-duration: 5.5s; animation-delay: 0.3s; }
+    .stars-wrap .star:nth-child(8) { top: 50%; right: 4%; font-size: 22px; animation-duration: 4.2s; animation-delay: 1.5s; }
+    .stars-wrap .star:nth-child(9) { top: 70%; left: 6%; font-size: 26px; animation-duration: 3.8s; animation-delay: 0.6s; }
+    .stars-wrap .star:nth-child(10) { bottom: 8%; left: 20%; font-size: 20px; animation-duration: 5s; animation-delay: 1s; }
+    .stars-wrap .star:nth-child(11) { top: 18%; left: 35%; font-size: 24px; animation-duration: 4.8s; animation-delay: 0.4s; }
+    .stars-wrap .star:nth-child(12) { bottom: 40%; right: 25%; font-size: 22px; animation-duration: 3.2s; animation-delay: 1.3s; }
+    @keyframes star-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    .celebration-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 420px;
+      width: 100%;
+    }
+    .celebration-title {
+      font-size: clamp(3rem, 12vw, 5.5rem);
+      font-weight: 900;
+      color: #fff;
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 107, 157, 0.6), 0 4px 0 rgba(199, 21, 133, 0.5);
+      margin-bottom: 24px;
+      animation: title-pop 0.6s ease-out, title-glow 2s ease-in-out 0.5s infinite alternate;
+      letter-spacing: 0.02em;
+    }
+    .celebration-title span { display: inline-block; animation: celeb-bounce 0.5s ease-out backwards; }
+    .celebration-title span:nth-child(1) { animation-delay: 0.1s; }
+    .celebration-title span:nth-child(2) { animation-delay: 0.2s; }
+    .celebration-title span:nth-child(3) { animation-delay: 0.3s; }
+    .celebration-title span:nth-child(4) { animation-delay: 0.4s; }
+    .celebration-title span:nth-child(5) { animation-delay: 0.5s; }
+    .celebration-title span:nth-child(6) { animation-delay: 0.6s; }
+    @keyframes title-pop {
+      0% { transform: scale(0); opacity: 0; }
+      70% { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes title-glow { from { filter: brightness(1); } to { filter: brightness(1.15); } }
+    @keyframes celeb-bounce {
+      0% { transform: translateY(-50px); opacity: 0; }
+      60% { transform: translateY(10px); }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    .celebration-subtitle {
+      font-size: 1.4rem;
+      color: rgba(255, 255, 255, 0.95);
+      margin-bottom: 28px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      animation: celeb-fadeIn 0.8s ease-out 0.4s backwards;
+    }
+    @keyframes celeb-fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .celebration-image {
+      width: 100%;
+      aspect-ratio: 1;
+      min-height: 0;
+      background: linear-gradient(135deg, #2d1b4e 0%, #4a2c6a 100%);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 3px solid rgba(255, 215, 0, 0.4);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      position: relative;
+      animation: celeb-fadeIn 0.8s ease-out 0.6s backwards;
+    }
+    .celebration-image img {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      vertical-align: top;
+    }
+    .celebration-image:has(img) .celebration-placeholder { display: none; }
+    .celebration-image .celebration-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 215, 0, 0.4);
+      font-size: 64px;
+    }
+  </style>
+</head>
+<body>
+  <div id="valentine-page">
+    <div class="hearts-bg">
+      <div class="heart"></div>
+      <div class="heart heart-light"></div>
+      <div class="heart heart-dark"></div>
+      <div class="heart heart-light"></div>
+      <div class="heart heart-dark"></div>
+      <div class="heart"></div>
+      <div class="heart heart-light"></div>
+      <div class="heart heart-dark"></div>
+      <div class="heart"></div>
+      <div class="heart heart-light"></div>
+    </div>
+    <div class="card">
+      <div class="card-image">
+        <img id="cardGif" src="" alt="Валентинка">
+        <span class="placeholder">♥</span>
+      </div>
+      <p class="question" id="question"></p>
+      <div class="buttons">
+        <button type="button" class="btn btn-yes" id="btnYes">Да</button>
+        <button type="button" class="btn btn-no" id="btnNo">Нет</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="celebration-page">
+    <div class="fireworks" id="fireworks"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="stars-wrap">
+      <div class="star"></div>
+      <div class="star star-pink"></div>
+      <div class="star"></div>
+      <div class="star star-white"></div>
+      <div class="star star-pink"></div>
+      <div class="star"></div>
+      <div class="star star-white"></div>
+      <div class="star star-pink"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star star-white"></div>
+      <div class="star star-pink"></div>
+    </div>
+    <div class="salute">
+      <div class="salute-ray" style="--r: 0deg"></div>
+      <div class="salute-ray" style="--r: 36deg"></div>
+      <div class="salute-ray" style="--r: 72deg"></div>
+      <div class="salute-ray salute-pink" style="--r: 108deg"></div>
+      <div class="salute-ray" style="--r: 144deg"></div>
+      <div class="salute-ray" style="--r: 180deg"></div>
+      <div class="salute-ray salute-pink" style="--r: 216deg"></div>
+      <div class="salute-ray" style="--r: 252deg"></div>
+      <div class="salute-ray salute-green" style="--r: 288deg"></div>
+      <div class="salute-ray" style="--r: 324deg"></div>
+      <div class="salute-ray salute-pink" style="--r: 18deg"></div>
+      <div class="salute-ray" style="--r: 54deg"></div>
+      <div class="salute-ray salute-green" style="--r: 90deg"></div>
+      <div class="salute-ray" style="--r: 126deg"></div>
+      <div class="salute-ray" style="--r: 162deg"></div>
+      <div class="salute-ray salute-pink" style="--r: 198deg"></div>
+      <div class="salute-ray" style="--r: 234deg"></div>
+      <div class="salute-ray salute-green" style="--r: 270deg"></div>
+      <div class="salute-ray" style="--r: 306deg"></div>
+      <div class="salute-ray" style="--r: 342deg"></div>
+    </div>
+    <div class="celebration-content">
+      <h1 class="celebration-title">
+        <span>У</span><span>р</span><span>а</span><span>!</span><span>!</span><span>!</span>
+      </h1>
+      <p class="celebration-subtitle">Ты сказала да! Люблю тебя роднуля! 💕</p>
+      <div class="celebration-image">
+        <img src="https://media.tenor.com/lnI645QIjMAAAAAi/gatitos-enamorados-besos-de-amor.gif" alt="Праздник">
+        <span class="celebration-placeholder">♥</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const btnYes = document.getElementById('btnYes');
+    const btnNo = document.getElementById('btnNo');
+    const questionEl = document.getElementById('question');
+
+    const phrases = [
+      'Ритуля, будешь моей валентинкой?',
+      'Пока надоел..будешь?',
+      'Ну пожалуйста, чимбербон( 💕',
+      'Я пишев плакать...если нет',
+      'Совсем не любишь Кольку да, скажи да?',
+      'У тебя нет выбора, я Декста Мога ♥',
+      'Один шансик ещё?',
+      'Ну хоть капельку подумай!',
+      'Я буду спрашивать снова и снова!',
+      'Ладно, последний раз — будешь моей валентинкой?'
+    ];
+
+    const gifUrls = [
+      'https://media1.tenor.com/m/y6LthaDam3gAAAAd/sped-up-kiss-cute-cat-kitten-gif-6454201794369349769-cat.gif',
+      'https://media1.tenor.com/m/rl_da90w6a0AAAAC/的9.gif',
+      'https://media1.tenor.com/m/esprFaACWL8AAAAC/jerry-beg.gif',
+      'https://media1.tenor.com/m/8DB9gYKzozUAAAAC/rain-raining.gif',
+      'https://media1.tenor.com/m/6IJb6BzvI0YAAAAd/cat-kitty.gif',
+      'https://media1.tenor.com/m/NbqmyQngYdkAAAAC/bruhlmaojk-dexter-morgan.gif'
+    ];
+
+    const cardImageContainer = document.querySelector('.card-image');
+    let phraseIndex = 0;
+    let gifIndex = 0;
+    let scaleYes = 1;
+    let scaleNo = 1;
+    const minScaleNo = 0.01;
+
+    function setGif(index) {
+      var url = gifUrls[index];
+      var oldImg = cardImageContainer.querySelector('img');
+      var newImg = document.createElement('img');
+      newImg.id = 'cardGif';
+      newImg.alt = 'Валентинка';
+      newImg.src = url;
+      oldImg.replaceWith(newImg);
+    }
+
+    function applyScales() {
+      btnYes.style.transform = 'scale(' + scaleYes + ')';
+      if (scaleNo <= minScaleNo) {
+        btnNo.classList.add('hidden');
+        btnNo.style.transform = 'scale(0)';
+      } else {
+        btnNo.style.transform = 'scale(' + scaleNo + ')';
+      }
+    }
+
+    questionEl.textContent = phrases[0];
+    setGif(0);
+
+    btnNo.addEventListener('click', function() {
+      if (btnNo.classList.contains('hidden')) return;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      questionEl.textContent = phrases[phraseIndex];
+      gifIndex = (gifIndex + 1) % gifUrls.length;
+      setGif(gifIndex);
+      scaleYes += 0.3;
+      scaleNo -= 0.2;
+      if (scaleNo < minScaleNo) scaleNo = minScaleNo;
+      applyScales();
+    });
+
+    btnYes.addEventListener('click', function() {
+      phraseIndex = 0;
+      gifIndex = 0;
+      questionEl.textContent = phrases[0];
+      setGif(0);
+      scaleYes = 1;
+      scaleNo = 1;
+      btnNo.classList.remove('hidden');
+      applyScales();
+      document.getElementById('valentine-page').style.display = 'none';
+      document.getElementById('celebration-page').style.display = 'flex';
+      if (!window._celebrationParticlesDone) {
+        createParticles();
+        window._celebrationParticlesDone = true;
+      }
+    });
+
+    function createParticles() {
+      const colors = ['#ff6b9d', '#ffd93d', '#6bcb77', '#4d96ff', '#ff9a9e', '#c71585', '#ffecd2'];
+      const container = document.getElementById('fireworks');
+      if (!container) return;
+      const count = 100;
+      for (let i = 0; i < count; i++) {
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const angle = (Math.PI * 2 * i) / count + Math.random();
+        const dist = 80 + Math.random() * 60;
+        const dx = Math.cos(angle) * dist;
+        const dy = Math.sin(angle) * dist;
+        const el = document.createElement('div');
+        el.className = 'particle';
+        el.style.left = x + '%';
+        el.style.top = y + '%';
+        el.style.background = colors[Math.floor(Math.random() * colors.length)];
+        el.style.animationDelay = (i * 0.05) + 's';
+        el.style.setProperty('--dx', dx);
+        el.style.setProperty('--dy', dy);
+        container.appendChild(el);
+      }
+    }
+  </script>
+</body>
+</html>
